@@ -3342,3 +3342,95 @@ footer {
     transition: none;
   }
 }
+
+/* ── Easter Greeting Card ─────────────────────────────────────────── */
+.easter-greeting {
+  padding: 3rem 0 2rem;
+}
+
+.easter-card {
+  position: relative;
+  background: linear-gradient(135deg, #1a3a1a 0%, #0f2c20 50%, #0d233d 100%);
+  border: 1px solid rgba(134, 239, 172, 0.3);
+  border-radius: 20px;
+  padding: 3rem 2.5rem 2.5rem;
+  text-align: center;
+  box-shadow:
+    0 0 40px rgba(134, 239, 172, 0.12),
+    0 20px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.easter-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 0%,
+    rgba(134, 239, 172, 0.13) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+}
+
+.easter-eggs {
+  font-size: 2rem;
+  letter-spacing: 0.4rem;
+  margin-bottom: 1.2rem;
+  display: block;
+  animation: easterBounce 2.4s ease-in-out infinite;
+}
+
+@keyframes easterBounce {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.easter-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #86efac;
+  text-shadow:
+    0 0 24px rgba(134, 239, 172, 0.55),
+    0 2px 8px rgba(0, 0, 0, 0.4);
+  margin: 0 0 1.2rem;
+}
+
+.easter-msg {
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  color: var(--text);
+  max-width: 620px;
+  margin: 0 auto 0.75rem;
+  line-height: 1.7;
+}
+
+.easter-msg strong {
+  color: #86efac;
+}
+
+.easter-sub {
+  font-size: 0.95rem;
+  color: var(--text-soft);
+  margin: 0 auto 1.5rem;
+  font-style: italic;
+}
+
+.easter-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #86efac, transparent);
+  margin: 0 auto 1.2rem;
+  border-radius: 2px;
+}
+
+.easter-sig {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  letter-spacing: 0.04em;
+}
