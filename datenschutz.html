@@ -1,6 +1,24 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33877VG7WG"></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      gtag("js", new Date());
+
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied"
+      });
+
+      gtag("config", "G-33877VG7WG");
+    </script>
+    <link rel="stylesheet" href="cookies.css?v=2" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Datenschutz | AUTOMOBILE A & A</title>
@@ -49,7 +67,7 @@
       content="https://www.automobile-aa.de/images/aaLogo.png"
     />
 
-    <link rel="stylesheet" href="styles.css?v=20" />
+    <link rel="stylesheet" href="styles.css?v=32" />
   </head>
   <body>
     <nav class="main-nav">
@@ -176,11 +194,47 @@
         </article>
 
         <article class="glass legal-card">
-          <h2>10. Cookies</h2>
+          <h2>10. Cookies und Einwilligungsverwaltung</h2>
           <p>
-            Diese Website verwendet ausschließlich technisch notwendige Cookies,
-            die für den Betrieb der Seite erforderlich sind. Es werden keine
-            Cookies zu Analyse-, Tracking- oder Marketingzwecken eingesetzt.
+            Diese Website setzt technisch notwendige Cookies, die für den
+            Betrieb der Seite erforderlich sind. Für Analyse-, Marketing- und
+            Einstellungs-Cookies bitten wir Sie beim ersten Besuch um Ihre
+            ausdrückliche Einwilligung
+            (Art.&nbsp;6&nbsp;Abs.&nbsp;1&nbsp;lit.&nbsp;a DSGVO, §&nbsp;25
+            TDDDG).
+          </p>
+          <p>
+            <strong>Widerruf:</strong> Sie können Ihre Einwilligung jederzeit
+            mit Wirkung für die Zukunft widerrufen, indem Sie auf
+            <strong>„Cookie-Einstellungen"</strong> im Footer dieser Website
+            klicken oder
+            <button
+              type="button"
+              onclick="
+                if (window.CookieConsent) window.CookieConsent.openSettings();
+              "
+              style="
+                background: none;
+                border: none;
+                color: var(--accent);
+                cursor: pointer;
+                text-decoration: underline;
+                font: inherit;
+                padding: 0;
+              "
+            >
+              hier klicken</button
+            >.
+          </p>
+          <p>
+            Detaillierte Informationen zu allen eingesetzten Cookies, deren
+            Zweck, Speicherdauer und den beteiligten Drittanbietern finden Sie
+            in unserer
+            <a data-transition="page" href="cookies.html">Cookie-Richtlinie</a>.
+          </p>
+          <p>
+            Rechtsgrundlage: Art.&nbsp;6&nbsp;Abs.&nbsp;1&nbsp;lit.&nbsp;a DSGVO
+            · §&nbsp;25 TDDDG
           </p>
         </article>
 
@@ -249,6 +303,7 @@
       </div>
     </footer>
 
-    <script src="script.js?v=20"></script>
+    <script src="script.js?v=28"></script>
+    <script src="cookies.js?v=2"></script>
   </body>
 </html>

@@ -1,13 +1,33 @@
 <!doctype html>
 <html lang="de">
   <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-33877VG7WG"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag("js", new Date());
+
+      gtag("consent", "default", {
+        analytics_storage: "denied",
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+      });
+
+      gtag("config", "G-33877VG7WG");
+    </script>
+    <link rel="stylesheet" href="cookies.css?v=3" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>
-      AUTOMOBILE A & A | Gepruefte Gebrauchtwagen - Autowerkstatt in
-      Neutraubling
-    </title>
+    <title>AUTOMOBILE A & A | Autowerkstatt in Neutraubling</title>
 
     <meta
       name="description"
@@ -109,8 +129,9 @@
       }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=20" />
-    <script src="script.js?v=20"></script>
+    <link rel="stylesheet" href="styles.css?v=33" />
+    <link rel="stylesheet" href="cookies.css?v=3" />
+    <script src="script.js?v=29"></script>
   </head>
   <body>
     <nav class="main-nav">
@@ -839,16 +860,21 @@
 
           <article class="glass contact-map-card">
             <p class="contact-card-title">Google Maps</p>
-            <p class="map-privacy-note">
-              Aus Datenschutzgruenden wird keine Karte direkt eingebettet.
-              Oeffnen Sie den Standort bei Bedarf direkt in Google Maps.
-            </p>
+            <div class="map-frame-wrap">
+              <iframe
+                src="https://maps.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling&output=embed"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+                title="AUTOMOBILE A &amp; A – Standort Neutraubling"
+                allowfullscreen
+              ></iframe>
+            </div>
             <a
-              class="contact-pill map-privacy-link"
-              href="https://www.google.com/maps?q=Borsigstra%C3%9Fe%2010a%2C%2093073%20Neutraubling"
+              class="contact-pill map-external-link"
+              href="https://www.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling"
               target="_blank"
               rel="noopener noreferrer"
-              >Google Maps im neuen Tab oeffnen</a
+              >In Google Maps öffnen ↗</a
             >
           </article>
         </div>
@@ -908,5 +934,6 @@
       aria-label="WhatsApp Chat öffnen"
       >WA</a
     >
+    <script src="cookies.js?v=2"></script>
   </body>
 </html>

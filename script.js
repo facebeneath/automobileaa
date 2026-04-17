@@ -432,7 +432,9 @@ function ensureFooterLegalLinks() {
       <a data-transition="page" href="impressum.html">Impressum</a>
       <a data-transition="page" href="agb.html">AGB</a>
       <a data-transition="page" href="datenschutz.html">Datenschutz</a>
+      <a data-transition="page" href="cookies.html">Cookie-Richtlinie</a>
       <a data-transition="page" href="widerruf.html">Widerruf</a>
+      <a href="#" id="footer-cookie-settings" onclick="event.preventDefault();if(window.CookieConsent)window.CookieConsent.openSettings();">Cookie-Einstellungen</a>
     `;
     footerInner.append(legal);
   }
@@ -2120,3 +2122,17 @@ window.addEventListener("DOMContentLoaded", () => {
   setupMatrixTextReveal();
   enhanceAutoDescriptionLists();
 });
+
+function showGoogleMap(btn) {
+  var gate = btn.closest(".map-gate");
+  if (!gate) return;
+  gate.innerHTML =
+    '<div class="map-frame-wrap">' +
+    '<iframe src="https://maps.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling&output=embed" ' +
+    'loading="lazy" referrerpolicy="no-referrer-when-downgrade" ' +
+    'title="AUTOMOBILE A &amp; A \u2013 Standort Neutraubling" allowfullscreen></iframe>' +
+    "</div>" +
+    '<a class="contact-pill map-external-link" style="display:block;text-align:center;margin-top:0;" ' +
+    'href="https://www.google.com/maps?q=Borsigstra%C3%9Fe+10a,+93073+Neutraubling" ' +
+    'target="_blank" rel="noopener noreferrer">In Google Maps \u00f6ffnen \u2197</a>';
+}
