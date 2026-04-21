@@ -1,25 +1,23 @@
 <!doctype html>
 <html lang="de">
   <head>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-33877VG7WG"
-    ></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-33877VG7WG"></script>
 
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
 
-      gtag("js", new Date());
+  gtag("js", new Date());
 
-      gtag("consent", "default", {
-        analytics_storage: "denied",
-        ad_storage: "denied",
-        ad_user_data: "denied",
-        ad_personalization: "denied",
-      });
+  gtag("consent", "default", {
+    analytics_storage: "denied",
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied"
+  });
+
+  gtag("config", "G-33877VG7WG");
+</script>
 
       gtag("config", "G-33877VG7WG");
     </script>
@@ -128,8 +126,8 @@
       }
     </script>
 
-    <link rel="stylesheet" href="styles.css?v=34" />
-    <script src="script.js?v=30"></script>
+    <link rel="stylesheet" href="styles.css?v=40" />
+    <script src="script.js?v=37"></script>
   </head>
   <body>
     <nav class="main-nav">
@@ -293,6 +291,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.14"
+                  loading="lazy"
                   src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1200&q=80"
                   alt="Mietwerkstatt"
                 />
@@ -315,6 +314,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.2"
+                  loading="lazy"
                   src="images/autopflege.jpg"
                   alt="Autopflege"
                 />
@@ -337,6 +337,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.16"
+                  loading="lazy"
                   src="images/auta.jpg"
                   alt="Autohandel"
                 />
@@ -359,6 +360,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.18"
+                  loading="lazy"
                   src="images/smart.webp"
                   alt="Smart Repair"
                 />
@@ -381,6 +383,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.22"
+                  loading="lazy"
                   src="https://images.unsplash.com/photo-1517524206127-48bbd363f3d7?auto=format&fit=crop&w=1200&q=80"
                   alt="Reifenwechsel"
                 />
@@ -403,6 +406,7 @@
                   class="card-media"
                   data-parallax="true"
                   data-speed="0.17"
+                  loading="lazy"
                   src="https://images.unsplash.com/photo-1487754180451-c456f719a1fc?auto=format&fit=crop&w=1200&q=80"
                   alt="TÜV Vorbereitung"
                 />
@@ -462,7 +466,8 @@
             <div class="climate-service-media-wrap">
               <img
                 class="card-media climate-service-media"
-                src="images/klima1.jpg"
+                loading="lazy"
+                src="images/klima.jpg"
                 alt="Klimaservice"
               />
             </div>
@@ -482,7 +487,29 @@
       </div>
     </section>
 
-    <div class="full-line"></div>
+    <section class="parallax-section">
+      <div
+        class="parallax-bg"
+        style="background-image: url(&quot;images/guma.jpg&quot;)"
+        data-speed-bg="0.22"
+        data-speed-content="0.06"
+      ></div>
+      <div class="parallax-overlay"></div>
+      <div class="parallax-content">
+        <p class="eyebrow">Reifenservice &amp; Sicherheit</p>
+        <h2>DER KONTAKT<br /><em>ZUR STRASSE</em></h2>
+        <p class="parallax-copy-strong">
+          Professioneller Reifenwechsel und TÜV-Vorbereitung – damit Sie sicher
+          ankommen.
+        </p>
+        <a
+          class="btn btn-primary"
+          data-transition="page"
+          href="service-reifenwechsel.html"
+          >Mehr erfahren</a
+        >
+      </div>
+    </section>
 
     <section class="section" style="padding-top: 0">
       <div class="container reveal video-showcase">
@@ -664,6 +691,7 @@
               <img
                 src="images/PreiseListe.jpeg"
                 alt="Preisliste AUTOMOBILE A &amp; A"
+                loading="lazy"
                 class="willkommen-img"
               />
             </a>
@@ -694,7 +722,26 @@
         </div>
       </div>
     </section>
-    <div class="full-line"></div>
+    <section class="parallax-section">
+      <div
+        class="parallax-bg"
+        style="background-image: url(&quot;images/auto666.jpg&quot;)"
+        data-speed-bg="0.22"
+        data-speed-content="0.06"
+      ></div>
+      <div class="parallax-overlay parallax-overlay--right"></div>
+      <div class="parallax-content parallax-content--right">
+        <p class="eyebrow">Fahrzeugankauf &amp; Handel</p>
+        <h2>GEPRÜFTE<br /><em>FAHRZEUGE</em></h2>
+        <p>
+          Transparenter Handel, faire Preise und geprüfte Fahrzeuggeschichte –
+          weil Vertrauen das Fundament jedes Kaufes ist.
+        </p>
+        <a class="btn btn-primary" data-transition="page" href="autos.html"
+          >Fahrzeuge ansehen</a
+        >
+      </div>
+    </section>
 
     <section class="section" style="padding-top: 0">
       <div class="container reveal">

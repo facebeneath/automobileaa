@@ -1298,6 +1298,138 @@ function setupServiceCardParallax() {
   window.addEventListener("resize", onScroll);
 }
 
+function setupSectionParallax() {
+  const sections = document.querySelectorAll(".parallax-section");
+  if (!sections.length) return;
+
+  const prefersReduced = window.matchMedia(
+    "(prefers-reduced-motion: reduce)",
+  ).matches;
+
+  if (prefersReduced) return;
+
+  const LERP = 0.09;
+  const isMobile = window.matchMedia("(max-width: 860px)").matches;
+  // Gentler depth on small screens so the effect stays proportional
+  const speedScale = isMobile ? 0.5 : 1;
+
+  const entries = [];
+
+  sections.forEach((section) => {
+    const bg = section.querySelector(".parallax-bg");
+    const content = section.querySelector(".parallax-content");
+    if (!bg) return;
+
+    const speedBg =
+      Number.parseFloat(bg.dataset.speedBg ?? bg.dataset.speed ?? "0.22") *
+      speedScale;
+    const speedContent =
+      Number.parseFloat(bg.dataset.speedContent ?? "0.06") * speedScale;
+
+    bg.style.willChange = "transform";
+    if (content) content.style.willChange = "transform";
+
+    entries.push({
+      section,
+      bg,
+      content,
+      speedBg,
+      speedContent,
+      bgY: 0,
+      ctY: 0,
+      bgTarget: 0,
+      ctTarget: 0,
+    });
+  });
+
+  if (!entries.length) return;
+
+  let rafId = null;
+  let scrollTimer = null;
+  let userIsScrolling = false;
+  const vpH = () => window.innerHeight;
+
+  const computeTargets = () => {
+    const half = vpH() / 2;
+    entries.forEach((e) => {
+      const rect = e.section.getBoundingClientRect();
+      const sCenter = rect.top + rect.height / 2;
+      const dist = sCenter - half;
+      e.bgTarget = dist * e.speedBg;
+      e.ctTarget = dist * e.speedContent;
+    });
+  };
+
+  const tick = () => {
+    if (userIsScrolling) {
+      computeTargets();
+    }
+
+    let allSettled = true;
+
+    entries.forEach((e) => {
+      const rect = e.section.getBoundingClientRect();
+      if (rect.bottom < -50 || rect.top > vpH() + 50) return;
+
+      const newBgY = e.bgY + (e.bgTarget - e.bgY) * LERP;
+      const newCtY = e.ctY + (e.ctTarget - e.ctY) * LERP;
+
+      if (Math.abs(newBgY - e.bgY) > 0.02 || Math.abs(newCtY - e.ctY) > 0.02) {
+        allSettled = false;
+      }
+
+      e.bgY = newBgY;
+      e.ctY = newCtY;
+
+      e.bg.style.setProperty("--parallax-y", `${e.bgY.toFixed(3)}px`);
+      if (e.content) {
+        e.content.style.setProperty(
+          "--parallax-content-y",
+          `${e.ctY.toFixed(3)}px`,
+        );
+      }
+    });
+
+    if (userIsScrolling) {
+      allSettled = false;
+    }
+
+    if (!allSettled) {
+      rafId = requestAnimationFrame(tick);
+    } else {
+      rafId = null;
+    }
+  };
+
+  const startTick = () => {
+    computeTargets();
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  };
+
+  const markScrolling = () => {
+    userIsScrolling = true;
+    if (scrollTimer) {
+      window.clearTimeout(scrollTimer);
+    }
+    scrollTimer = window.setTimeout(() => {
+      userIsScrolling = false;
+    }, 140);
+    startTick();
+  };
+
+  computeTargets();
+  entries.forEach((e) => {
+    e.bgY = e.bgTarget;
+    e.ctY = e.ctTarget;
+  });
+  rafId = requestAnimationFrame(tick);
+
+  window.addEventListener("scroll", markScrolling, { passive: true });
+  window.addEventListener("touchmove", markScrolling, { passive: true });
+  window.addEventListener("touchend", markScrolling, { passive: true });
+  window.addEventListener("resize", startTick, { passive: true });
+}
+
 function setupBackToTopArrow() {
   let button = document.querySelector(".back-to-top");
 
@@ -1367,7 +1499,7 @@ function setupMobileLeistungenStack() {
     return;
   }
 
-  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  const mobileQuery = window.matchMedia("(max-width: 860px)");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let startY = 0;
   let range = 1;
@@ -1759,7 +1891,7 @@ function setupMobileOdorTimeline() {
     return;
   }
 
-  const mobileQuery = window.matchMedia("(max-width: 768px)");
+  const mobileQuery = window.matchMedia("(max-width: 860px)");
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   let ticking = false;
 
@@ -2116,12 +2248,20 @@ window.addEventListener("DOMContentLoaded", () => {
   setupContactForm();
   setupBackButtons();
   setupServiceCardParallax();
+  setupSectionParallax();
   setupBackToTopArrow();
   setupHeroPoster();
   setupGlobalTicker();
   setupMatrixTextReveal();
   enhanceAutoDescriptionLists();
 });
+
+function acceptCookies() {
+  gtag("consent", "update", {
+    analytics_storage: "granted",
+    ad_storage: "granted",
+  });
+}
 
 function showGoogleMap(btn) {
   var gate = btn.closest(".map-gate");
