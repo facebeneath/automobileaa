@@ -1323,7 +1323,36 @@ p {
   margin-bottom: 1rem;
 }
 
+.ebay-section {
+  position: relative;
+}
+
+.ebay-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      circle at 12% 20%,
+      rgba(229, 50, 56, 0.14),
+      transparent 36%
+    ),
+    radial-gradient(
+      circle at 88% 18%,
+      rgba(0, 100, 210, 0.18),
+      transparent 34%
+    ),
+    radial-gradient(
+      circle at 62% 86%,
+      rgba(134, 184, 23, 0.16),
+      transparent 40%
+    );
+}
+
 .ebay-card {
+  position: relative;
+  overflow: hidden;
   display: grid;
   grid-template-columns: minmax(0, 1.4fr) auto;
   align-items: center;
@@ -1331,9 +1360,30 @@ p {
   padding: 1.5rem;
   border-radius: 24px;
   background:
-    linear-gradient(145deg, rgba(12, 31, 55, 0.92), rgba(8, 21, 38, 0.88)),
-    rgba(7, 23, 40, 0.58);
-  border: 1px solid rgba(138, 215, 255, 0.28);
+    radial-gradient(circle at 18% 0%, rgba(229, 50, 56, 0.18), transparent 45%),
+    radial-gradient(circle at 86% 8%, rgba(0, 100, 210, 0.2), transparent 44%),
+    linear-gradient(140deg, rgba(17, 31, 52, 0.96), rgba(10, 21, 37, 0.94));
+  border: 1px solid rgba(0, 100, 210, 0.34);
+  box-shadow:
+    0 18px 42px rgba(3, 9, 19, 0.38),
+    0 0 0 1px rgba(245, 175, 2, 0.12);
+}
+
+.ebay-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    #e53238 0%,
+    #0064d2 35%,
+    #f5af02 68%,
+    #86b817 100%
+  );
+  pointer-events: none;
 }
 
 .ebay-card-copy p:last-child {
@@ -1341,8 +1391,62 @@ p {
   max-width: 760px;
 }
 
+.ebay-badge {
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+}
+
+.ebay-word {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.02em;
+  font-size: 1.15rem;
+  line-height: 1;
+  text-transform: none;
+}
+
+.ebay-word span:nth-child(1) {
+  color: #e53238;
+}
+
+.ebay-word span:nth-child(2) {
+  color: #0064d2;
+}
+
+.ebay-word span:nth-child(3) {
+  color: #f5af02;
+}
+
+.ebay-word span:nth-child(4) {
+  color: #86b817;
+}
+
+.ebay-card .hl {
+  color: #86b817;
+  text-shadow: 0 0 14px rgba(134, 184, 23, 0.25);
+}
+
 .ebay-card-link {
   min-width: 260px;
+  color: #f7ffe9;
+  background: linear-gradient(135deg, #6a9511 0%, #86b817 54%, #9ccc2d 100%);
+  border-color: rgba(134, 184, 23, 0.64);
+  box-shadow: 0 10px 24px rgba(134, 184, 23, 0.34);
+}
+
+.ebay-card-link:hover {
+  background: linear-gradient(135deg, #76a715 0%, #86b817 54%, #a7d43b 100%);
+  box-shadow:
+    0 14px 30px rgba(134, 184, 23, 0.42),
+    0 0 0 1px rgba(245, 175, 2, 0.22);
+}
+
+.ebay-card-link:focus-visible {
+  outline: 2px solid rgba(245, 175, 2, 0.9);
+  outline-offset: 2px;
 }
 
 .video-showcase {
@@ -1899,6 +2003,56 @@ label span {
 
 .gallery a:hover img {
   transform: scale(1.03);
+}
+
+.service-video-block {
+  margin-top: clamp(2.5rem, 6vw, 3.75rem);
+  text-align: center;
+}
+
+.service-video-block.reveal {
+  transform: translateY(24px);
+  transition:
+    opacity 0.68s ease,
+    transform 0.68s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+.service-video-block.reveal.show {
+  transform: translateY(0);
+}
+
+.service-video-kicker {
+  margin: 0 0 0.9rem;
+  color: rgba(244, 248, 255, 0.84);
+  font-size: clamp(0.84rem, 1.7vw, 0.95rem);
+  letter-spacing: 0.06em;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.service-video {
+  display: block;
+  width: min(100%, 760px);
+  margin: 0 auto;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: #040b16;
+  box-shadow:
+    0 20px 45px rgba(3, 10, 19, 0.45),
+    0 10px 20px rgba(0, 0, 0, 0.28),
+    0 0 0 1px rgba(1, 178, 184, 0.12);
+  object-fit: cover;
+}
+
+@media (max-width: 860px) {
+  .service-video-block {
+    margin-top: clamp(2.2rem, 9vw, 3.1rem);
+  }
+
+  .service-video {
+    width: 100%;
+    border-radius: 12px;
+  }
 }
 
 body.lightbox-open {
@@ -3596,7 +3750,11 @@ footer {
 }
 
 .ebay-card {
-  border-color: rgba(1, 178, 184, 0.24);
+  border-color: rgba(0, 100, 210, 0.34);
+}
+
+.ebay-card:hover {
+  border-color: rgba(245, 175, 2, 0.45);
 }
 
 .stat-item {
