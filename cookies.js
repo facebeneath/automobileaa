@@ -37,11 +37,15 @@
 
   function enableGA() {
     waitForGtag(function () {
-      window.gtag("consent", "update", {
+      gtag("consent", "update", {
         analytics_storage: "granted",
         ad_storage: "granted",
         ad_user_data: "granted",
         ad_personalization: "granted",
+      });
+
+      gtag("event", "page_view", {
+        send_to: "G-290N0LX80C",
       });
     });
   }
@@ -96,14 +100,14 @@
     wrap.id = "cc-wrap";
 
     wrap.innerHTML = `
-  <div id="cc-box">
-    <h2>Cookies</h2>
-    <p>Wir verwenden Cookies für Analysen und zur Verbesserung der Website.</p>
+      <div id="cc-box">
+        <h2>Cookies</h2>
+        <p>Wir verwenden Cookies für Analysen und zur Verbesserung der Website.</p>
 
-    <button class="cc-btn cc-accept" id="cc-accept">Alle akzeptieren</button>
-    <button class="cc-btn cc-decline" id="cc-decline">Ablehnen</button>
-  </div>
-`;
+        <button class="cc-btn cc-accept" id="cc-accept">Alle akzeptieren</button>
+        <button class="cc-btn cc-decline" id="cc-decline">Ablehnen</button>
+      </div>
+    `;
 
     return wrap;
   }
