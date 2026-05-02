@@ -11,6 +11,14 @@
     }
   }
 
+  function getDecision() {
+    try {
+      return localStorage.getItem(KEY);
+    } catch (e) {
+      return null;
+    }
+  }
+
   function remember(v) {
     try {
       localStorage.setItem(KEY, v);
@@ -35,8 +43,6 @@
         ad_user_data: "granted",
         ad_personalization: "granted",
       });
-
-      window.gtag("event", "page_view");
     });
   }
 
@@ -102,8 +108,24 @@
     return wrap;
   }
 
+  function applyStoredConsent() {
+    var v = getDecision();
+
+    if (v === "yes") {
+      enableGA();
+      return true;
+    }
+
+    if (v === "no") {
+      disableGA();
+      return true;
+    }
+
+    return false;
+  }
+
   function init() {
-    if (decided()) return;
+    if (applyStoredConsent()) return;
 
     injectStyles();
 
