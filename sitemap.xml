@@ -7,12 +7,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.automobile-aa.de/auto-audi-q5.html</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.automobile-aa.de/auto-audi-sq5.html</loc>
     <lastmod>2026-03-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -26,12 +20,6 @@
   </url>
   <url>
     <loc>https://www.automobile-aa.de/auto-honda-civic.html</loc>
-    <lastmod>2026-03-18</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.automobile-aa.de/auto-mercedes-citan.html</loc>
     <lastmod>2026-03-18</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -69,6 +57,12 @@
   <url>
     <loc>https://www.automobile-aa.de/auto-skoda-octavia.html</loc>
     <lastmod>2026-03-18</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.automobile-aa.de/auto-volkswagen-golf-kombi.html</loc>
+    <lastmod>2026-05-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

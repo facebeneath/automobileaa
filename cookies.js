@@ -90,14 +90,14 @@
     wrap.id = "cc-wrap";
 
     wrap.innerHTML = `
-      <div id="cc-box">
-        <h2>Cookies</h2>
-        <p>Wir verwenden Cookies für Analysen und zur Verbesserung der Website.</p>
+  <div id="cc-box">
+    <h2>Cookies</h2>
+    <p>Wir verwenden Cookies für Analysen und zur Verbesserung der Website.</p>
 
-        <button class="cc-btn cc-accept" id="cc-accept">Alle akzeptieren</button>
-        <button class="cc-btn cc-decline" id="cc-decline">Ablehnen</button>
-      </div>
-    `;
+    <button class="cc-btn cc-accept" id="cc-accept">Alle akzeptieren</button>
+    <button class="cc-btn cc-decline" id="cc-decline">Ablehnen</button>
+  </div>
+`;
 
     return wrap;
   }
